@@ -78,9 +78,9 @@ end
 function M:FindQuestAccept(questID)
 	local link = GetQuestLink(questID)
 	local questLogIndex = C_QuestLog.GetLogIndexForQuestID(questID)
-	local info = C_QuestLog.GetInfo(questLogIndex)
-	local frequency = info.frequency
-	if link then
+	if link and questLogIndex then
+		local info = C_QuestLog.GetInfo(questLogIndex)
+		local frequency = info.frequency
 		local tagID, _, worldQuestType = C_QuestLog.GetQuestTagInfo(questID)
 		if tagID == 109 or worldQuestType == LE_QUEST_TAG_TYPE_PROFESSION then return end
 		sendQuestMsg(acceptText(link, frequency == LE_QUEST_FREQUENCY_DAILY))
