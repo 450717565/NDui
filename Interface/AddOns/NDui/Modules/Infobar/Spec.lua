@@ -52,7 +52,7 @@ local pvpIconTexture = C_CurrencyInfo.GetCurrencyInfo(104).iconFileID
 
 info.onEnter = function(self)
 	local specIndex = GetSpecialization()
-	if not specIndex then return end
+	if not specIndex or specIndex == 5 then return end
 
 	GameTooltip:SetOwner(self, "ANCHOR_TOP", 0, 15)
 	GameTooltip:ClearLines()
@@ -108,7 +108,7 @@ end
 
 info.onMouseUp = function(self, btn)
 	local specIndex = GetSpecialization()
-	if not specIndex then return end
+	if not specIndex or specIndex == 5 then return end
 
 	if btn == "LeftButton" then
 		if InCombatLockdown() then UIErrorsFrame:AddMessage(DB.InfoColor..ERR_NOT_IN_COMBAT) return end
