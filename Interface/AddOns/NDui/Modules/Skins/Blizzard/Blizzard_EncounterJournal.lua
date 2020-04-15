@@ -344,4 +344,14 @@ C.themes["Blizzard_EncounterJournal"] = function()
 			suggestion.reward.icon:SetTexCoord(unpack(DB.TexCoord))
 		end
 	end)
+
+	local buttons = {
+		EncounterJournalEncounterFrameInfoDifficulty,
+		EncounterJournalEncounterFrameInfoLootScrollFrameFilterToggle,
+		EncounterJournalEncounterFrameInfoLootScrollFrameSlotFilterToggle,
+	}
+	for _, btn in pairs(buttons) do
+		B.StripTextures(btn)
+		B.Reskin(btn)
+	end
 end
